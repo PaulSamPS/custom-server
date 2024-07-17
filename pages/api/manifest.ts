@@ -306,6 +306,7 @@ async function putNoUpdateAvailableInResponseAsync(
     },
   });
 
+  console.log('success, res')
   res.statusCode = 200;
   res.setHeader('expo-protocol-version', 1);
   res.setHeader('expo-sfv-version', 0);

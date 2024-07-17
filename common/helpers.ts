@@ -85,6 +85,7 @@ export async function getAssetMetadataAsync(arg: GetAssetMetadataArg) {
   const key = createHash(asset, 'md5', 'hex');
   const keyExtensionSuffix = arg.isLaunchAsset ? 'bundle' : arg.ext;
   const contentType = arg.isLaunchAsset ? 'application/javascript' : mime.getType(arg.ext);
+  console.log('Сработало')
 
   return {
     hash: assetHash,
@@ -128,6 +129,8 @@ export async function getMetadataAsync({
     const updateMetadataBuffer = await fs.readFile(path.resolve(metadataPath), null);
     const metadataJson = JSON.parse(updateMetadataBuffer.toString('utf-8'));
     const metadataStat = await fs.stat(metadataPath);
+
+    console.log('сработало 2')
 
     return {
       metadataJson,

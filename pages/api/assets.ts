@@ -58,7 +58,7 @@ export default async function assetsEndpoint(req: NextApiRequest, res: NextApiRe
     res.json({ error: `Asset "${assetName}" does not exist.` });
     return;
   }
-
+console.log('assets working')
   try {
     const asset = fs.readFileSync(assetPath, null);
 
