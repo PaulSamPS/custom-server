@@ -85,7 +85,13 @@ export async function getAssetMetadataAsync(arg: GetAssetMetadataArg) {
   const key = createHash(asset, 'md5', 'hex');
   const keyExtensionSuffix = arg.isLaunchAsset ? 'bundle' : arg.ext;
   const contentType = arg.isLaunchAsset ? 'application/javascript' : mime.getType(arg.ext);
-  console.log('Сработало')
+  console.log('Сработало', {
+    hash: assetHash,
+    key,
+    fileExtension: `.${keyExtensionSuffix}`,
+    contentType,
+    url: `${process.env.HOSTNAME}/api/assets?asset=${assetFilePath}&runtimeVersion=${arg.runtimeVersion}&platform=${arg.platform}`
+  })
 
   return {
     hash: assetHash,
