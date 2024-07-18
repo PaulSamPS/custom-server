@@ -136,7 +136,7 @@ export async function getMetadataAsync({
     const metadataJson = JSON.parse(updateMetadataBuffer.toString('utf-8'));
     const metadataStat = await fs.stat(metadataPath);
 
-    console.log('сработало 2');
+    console.log('сработало 2', metadataStat, metadataPath, updateMetadataBuffer, metadataJson);
 
     return {
       metadataJson,
@@ -162,6 +162,7 @@ export async function getExpoConfigAsync({
   runtimeVersion: string;
 }): Promise<any> {
   try {
+    console.log('bundlePath', updateBundlePath);
     const expoConfigPath = `${updateBundlePath}/expoConfig.json`;
     const expoConfigBuffer = await fs.readFile(path.resolve(expoConfigPath), null);
     const expoConfigJson = JSON.parse(expoConfigBuffer.toString('utf-8'));
