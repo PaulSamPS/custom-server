@@ -112,6 +112,7 @@ async function putUpdateInResponseAsync(
   protocolVersion: number
 ): Promise<void> {
   const currentUpdateId = req.headers['expo-current-update-id'];
+  console.log(updateBundlePath, runtimeVersion, 'sdsds');
   const { metadataJson, createdAt, id } = await getMetadataAsync({
     updateBundlePath,
     runtimeVersion,
@@ -306,7 +307,7 @@ async function putNoUpdateAvailableInResponseAsync(
     },
   });
 
-  console.log('success, res')
+  console.log('success, res');
   res.statusCode = 200;
   res.setHeader('expo-protocol-version', 1);
   res.setHeader('expo-sfv-version', 0);
